@@ -14,9 +14,6 @@ A node.js pomodoro timer, build just as an execise
 - Offline support
 
 #Todo:
-- initialize express with pug and scss
-- update package.json
-    - install packages
 - setup npm scripts + build in VsCode
     - run 
     - webpack/sass
@@ -24,4 +21,10 @@ A node.js pomodoro timer, build just as an execise
 - create client script
     - start/stop timer
     - show countdown
+
+#Done:
+- initialize express with pug and scss
+- update package.json
+    - install packages
+
 
