@@ -5815,6 +5815,10 @@ button.close {
     display: none !important; } }
 
 body {
-  background-color: #191950; }
+  background-color: #191950;
+  color: white; }
+
+#Timer {
+  font-size: 3em; }
 
 /*# sourceMappingURL=main.css.map */

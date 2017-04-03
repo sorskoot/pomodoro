@@ -63,14 +63,51 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
 /***/ (function(module, exports) {
 
+window.$ = (selector) => document.querySelectorAll(selector);
 
+Object.assign(NodeList.prototype, {
+    addEventListener(event, handler) {
+        for (let i = 0; i < this.length; i++) {
+            this[i].addEventListener(event, handler);
+        }
+    }
+});
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(0);
+
+
+function countDown() {
+    let interval;
+    let time = 20;
+    interval = setInterval(() => {
+        displayTime(time);
+        time--;
+        if (time < 0) {
+            clearInterval(interval);
+            time = 0;
+        }
+    }, 1000);
+}
+
+function displayTime(time) {
+    let el = $('#Timer')[0];
+    let seconds = "00" + time % 60;
+    let minutes = "00" + ((time / 60) | 0);
+    el.innerText = minutes.substr(minutes.length - 2) + ':' + seconds.substr(seconds.length - 2);
+}
+
+countDown();
 
 /***/ })
 /******/ ]);
