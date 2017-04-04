@@ -14,15 +14,15 @@ A node.js pomodoro timer, build just as an execise
 - Offline support
 
 #Todo:
-- Better Design
 - Tasks
 - X for complete
 - ' for interruption
 - List unplanned activities
-- End Break
+- Better Design
 
 #Done:
-- initialize express with pug and scss
+- End Break
+- Initialize express with pug and scss
 - update package.json
     - install packages
 - setup npm scripts + build in VsCode
