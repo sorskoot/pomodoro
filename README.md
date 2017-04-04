@@ -14,9 +14,12 @@ A node.js pomodoro timer, build just as an execise
 - Offline support
 
 #Todo:
-- create client script
-    - start/stop timer
-    - show countdown
+- start/stop timer
+- Better Design
+- Tasks
+- X for complete
+- ' for interruption
+- List unplanned activities
 
 #Done:
 - initialize express with pug and scss
@@ -26,4 +29,4 @@ A node.js pomodoro timer, build just as an execise
     - run 
     - webpack/sass
 - setup folders
-
+- show countdown
