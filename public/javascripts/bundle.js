@@ -86,16 +86,24 @@ Object.assign(NodeList.prototype, {
 
 __webpack_require__(0);
 
+const pomodoroTime = 25 * 60;
+const shortBreakTime = 5 * 60;
+const longBreakTime = 20 * 60;
+
+let time = pomodoroTime;
+let onBreak = false;
+let breakCount = 0;
+let timerRunning = false;
+let interval;
 
 function countDown() {
-    let interval;
-    let time = 20;
     interval = setInterval(() => {
         displayTime(time);
         time--;
         if (time < 0) {
             clearInterval(interval);
             time = 0;
+            displayTime(time);
         }
     }, 1000);
 }
@@ -107,7 +115,24 @@ function displayTime(time) {
     el.innerText = minutes.substr(minutes.length - 2) + ':' + seconds.substr(seconds.length - 2);
 }
 
-countDown();
+$('#StartStopTimer')[0].onclick = function (e) {
+    if (!timerRunning) {
+        countDown();
+    } else {
+        clearInterval(interval);
+        setStartTime();
+        displayTime(time);
+    }
+    timerRunning = !timerRunning;
+    e.srcElement.innerText = timerRunning ? 'Stop' : 'Start';
+};
+
+function setStartTime() {
+    time = !onBreak ? pomodoroTime : 
+                (breakCount % 4 === 3) ? longBreakTime : shortBreakTime;
+}
+
+displayTime(time);
 
 /***/ })
 /******/ ]);
