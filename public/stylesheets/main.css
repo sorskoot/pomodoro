@@ -5,6 +5,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+@import url("https://fonts.googleapis.com/css?family=Pavanam|Spirax");
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -5815,10 +5816,22 @@ button.close {
     display: none !important; } }
 
 body {
-  background-color: #191950;
-  color: white; }
+  background-color: #f8f8f8; }
 
-#Timer {
-  font-size: 3em; }
+#timer {
+  width: 100%;
+  font-size: 5em;
+  font-family: Pavanam;
+  font-weight: bold; }
+
+#title {
+  font-family: Spirax;
+  font-size: 76px;
+  color: #cb0101;
+  margin-bottom: -20px; }
+
+#subtitle {
+  font-family: Pavanam;
+  font-size: 37px; }
 
 /*# sourceMappingURL=main.css.map */

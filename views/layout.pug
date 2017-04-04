@@ -4,5 +4,10 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/main.css')
   body
-    block content
-    script(src="/javascripts/bundle.js")
+    .container
+      .page-header
+        h1#title Pomodoro
+        small#subtitle getting the sauce done
+      block content
+      
+  script(src="/javascripts/bundle.js")

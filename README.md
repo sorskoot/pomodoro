@@ -14,7 +14,6 @@ A node.js pomodoro timer, build just as an execise
 - Offline support
 
 #Todo:
-
 - Better Design
 - Tasks
 - X for complete

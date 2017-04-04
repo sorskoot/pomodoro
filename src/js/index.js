@@ -23,13 +23,13 @@ function countDown() {
 }
 
 function displayTime(time) {
-    let el = $('#Timer')[0];
+    let el = $('#timer')[0];
     let seconds = "00" + time % 60;
     let minutes = "00" + ((time / 60) | 0);
     el.innerText = minutes.substr(minutes.length - 2) + ':' + seconds.substr(seconds.length - 2);
 }
 
-$('#StartStopTimer')[0].onclick = function (e) {
+$('#start-stop-timer')[0].onclick = function (e) {
     if (!timerRunning) {
         countDown();
     } else {
@@ -38,7 +38,7 @@ $('#StartStopTimer')[0].onclick = function (e) {
         displayTime(time);
     }
     timerRunning = !timerRunning;
-    e.srcElement.innerText = timerRunning ? 'Stop' : 'Start';
+    e.srcElement.innerText = timerRunning ? 'stop' : 'start';
 };
 
 function setStartTime() {
