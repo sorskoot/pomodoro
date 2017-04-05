@@ -63,11 +63,50 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports) {
+
+var tasks = [
+    { pomodoroCount: 1, description: 'Demo pomodoro 1'},
+    { pomodoroCount: 3, description: 'Another Demo pomodoro'},
+    { pomodoroCount: 5, description: 'A Demo pomodoro with a longer description that all the others'},
+    { pomodoroCount: 2, description: 'Demo pomodoro 4'},
+];
+
+module.exports = {
+    getTasks: function(){
+        return tasks;
+    }
+}
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+(function () {
+    module.exports = function templater(template, replacement) {
+        //const regex = /{{(\w*(?:\.\w+)*)}}/g;
+        const regex = /{{(\w*(?:(?::|\.)(?:\$|\w)+)*)}}/g;
+        let m, result = template;
+        while ((m = regex.exec(template)) !== null) {
+            if (m.index === regex.lastIndex) {
+                regex.lastIndex++;
+            }
+            var repl = m[1].split('.').reduce((obj, property) => obj[property], replacement);
+            if (repl) {
+                result = result.replace(m[0], repl);
+            }
+        }
+        return result;
+    }
+})();
+
+/***/ }),
+/* 2 */
 /***/ (function(module, exports) {
 
 window.$ = (selector) => document.querySelectorAll(selector);
@@ -81,10 +120,12 @@ Object.assign(NodeList.prototype, {
 });
 
 /***/ }),
-/* 1 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(0);
+__webpack_require__(2);
+var templater = __webpack_require__(1);
+var tasks = __webpack_require__(0);
 
 const pomodoroTime = 25 * 60;
 const shortBreakTime = 5 * 60;
@@ -151,7 +192,24 @@ function setStartTime() {
         (breakCount % 4 === 0) ? longBreakTime : shortBreakTime;
 };
 
+function displayTasks() {
+    var availableTasks = tasks.getTasks();
+    var template = $('#task-template')[0].innerHTML;
+    var taskList = $('#task-list')[0];
+    for (var i = 0; i < availableTasks.length; i++) {
+        var task = availableTasks[i];
+        var html = templater(template,
+            {
+                text: task.description, estimate: task.pomodoroCount, spend: "0"
+            });
+        taskList.innerHTML = taskList.innerHTML + html;
+    }
+}
+
 displayTime(time);
+displayTasks();
+
 
 /***/ })
 /******/ ]);
+//# sourceMappingURL=bundle.js.map

@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "compile":"webpack && node-sass --source-map true --include-path ./node_modules ./src/sass/style.scss ./public/stylesheets/main.css"
+    "compile":"webpack && node-sass --source-map true --include-path ./node_modules ./src/sass/style.scss ./public/stylesheets/main.css",
+    "test": "node ./node_modules/mocha/bin/mocha ./tests/**/test-*.js"
   },
   "dependencies": {
     "body-parser": "~1.16.0",
@@ -18,6 +19,8 @@
   },
   "devDependencies": {
     "webpack": "~2.3.3",
-    "node-sass":"~4.5.2"
+    "node-sass":"~4.5.2",
+    "mocha": "~3.2.0",
+    "chai": "~3.5.0"
   }
 }

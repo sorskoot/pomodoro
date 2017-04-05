@@ -14,14 +14,15 @@ A node.js pomodoro timer, build just as an execise
 - Offline support
 
 #Todo:
-- HTTPS
 - Tasks
 - X for complete
 - ' for interruption
 - List unplanned activities
 - Better Design
+    - Fix mobile
 
 #Done:
+- HTTPS
 - End Break
 - Initialize express with pug and scss
 - update package.json

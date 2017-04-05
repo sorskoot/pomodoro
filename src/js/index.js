@@ -1,4 +1,6 @@
 require('./timmytools');
+var templater = require('./templater');
+var tasks = require('./tasks.js');
 
 const pomodoroTime = 25 * 60;
 const shortBreakTime = 5 * 60;
@@ -65,4 +67,19 @@ function setStartTime() {
         (breakCount % 4 === 0) ? longBreakTime : shortBreakTime;
 };
 
+function displayTasks() {
+    var availableTasks = tasks.getTasks();
+    var template = $('#task-template')[0].innerHTML;
+    var taskList = $('#task-list')[0];
+    for (var i = 0; i < availableTasks.length; i++) {
+        var task = availableTasks[i];
+        var html = templater(template,
+            {
+                text: task.description, estimate: task.pomodoroCount, spend: "0"
+            });
+        taskList.innerHTML = taskList.innerHTML + html;
+    }
+}
+
 displayTime(time);
+displayTasks();
