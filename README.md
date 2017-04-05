@@ -14,6 +14,7 @@ A node.js pomodoro timer, build just as an execise
 - Offline support
 
 #Todo:
+- HTTPS
 - Tasks
 - X for complete
 - ' for interruption
