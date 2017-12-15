@@ -4,22 +4,22 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "compile":"webpack && node-sass --source-map true --include-path ./node_modules ./src/sass/style.scss ./public/stylesheets/main.css",
+    "compile": "webpack && node-sass --source-map true --include-path ./node_modules ./src/sass/style.scss ./public/stylesheets/main.css",
     "test": "node ./node_modules/mocha/bin/mocha ./tests/**/test-*.js"
   },
   "dependencies": {
     "body-parser": "~1.16.0",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.0",
-    "express": "~4.14.1",
+    "express": "~4.16.0",
     "morgan": "~1.7.0",
     "pug": "~2.0.0-beta10",
     "serve-favicon": "~2.3.2",
-    "bootstrap-sass":"~3.3.7"
+    "bootstrap-sass": "~3.3.7"
   },
   "devDependencies": {
     "webpack": "~2.3.3",
-    "node-sass":"~4.5.2",
+    "node-sass": "~4.5.2",
     "mocha": "~3.2.0",
     "chai": "~3.5.0"
   }
