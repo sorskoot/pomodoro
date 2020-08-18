@@ -15,7 +15,7 @@
     "morgan": "~1.7.0",
     "pug": "~2.0.0-beta10",
     "serve-favicon": "~2.3.2",
-    "bootstrap-sass": "~3.3.7"
+    "bootstrap-sass": "~3.4.0"
   },
   "devDependencies": {
     "webpack": "~2.3.3",
